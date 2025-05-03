@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+
+		<h1>Site de gestion de conférences</h1>
+		<h2>Fonctionnalités</h2>
+    <ul>
+		<li><a href="/participants/formCreation">Créer un compte participant</a></li>
+		<li><a href="/participants/list">Liste des participants</a></li>
+
+		<li><a href="/conferences/formCreation">Créer une nouvelle conférence</a></li>
+        <li><a href="/conferences/list">Liste des conférences</a></li>
+
+        <li><a href="/voirInscriptions">Consultation des inscriptions</a></li>          
+        <li><a href="/formChoixConf">S'inscrire à une conférence </a></li>
+			
+    </ul>
+	<br/>
+	
+	<div th:if=${session.estConnecte}>
+		<span th:text="${session.part.prenomPart}" /> 
+			<span th:text="${session.part.nomPart}" /> 		
+			<form action="/participants/deconnect" method="GET">
+				<input type="submit" name="button" value="Se déconnecter" />
+			</form>		
+	</div>
+	
+	<div th:unless=${session.estConnecte}>
+
+	<form action="/participants/connect" method="POST">
+		<input type="text" name="txt_email" value="" placeholder="email"/>
+		<input type="text" name="txt_pass" value="" placeholder="password"/>
+				
+		<input type="submit" name="button" value="Se connecter" />
+	</form>
+	
+	</div>
+	
+
+	<div	
+
+	</body>
+</html>

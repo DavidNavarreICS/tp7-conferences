@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<form action="/participants/insert" method="GET">
+	    <p> 
+	        Nom <input type="text" name="txt_nom" value="" />
+	    </p>
+	    <p>
+	        Prénom <input type="text" name="txt_prenom" value=""  />
+	    </p>
+	    <p>
+	        Email <input type="text" name="txt_email" value="" />
+	    </p>
+	    <p>
+	        Organisme <input type="text" name="txt_organisme" value="" /> 
+	    </p>
+	    <p>
+	        Adresse <input type="text" name="txt_adresse" value="" /> 
+	    </p>
+	    <p>
+	        Ville <input type="text" name="txt_ville" value="" /> 
+	    </p>
+	    <p>
+	        Code postal <input type="text" name="txt_cp" value="" /> 
+	    </p>
+	    <p>
+	        Pays <input type="text" name="txt_pays" value="" /> 
+	    </p>
+
+	    <p>
+	        Statut :  
+			<div th:each="s : ${status}">
+				<input type = 'radio' name = 'rd_statut' th:value = "${s.codeStatut}"/>
+				<span th:text="${s.nomStatut}" /> 
+			</div>
+	    </p>
+		
+		<p>
+		    Password <input type="password" name="txt_password" value="" /> 
+		</p>
+	    <input type="submit" value="S'inscrire" />            
+	</form>
+
+</body>
+</html>

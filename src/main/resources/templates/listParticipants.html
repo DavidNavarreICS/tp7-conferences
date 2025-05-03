@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h2>Liste des Participants</h2>
+
+	<table border = "1">
+	    <thead>
+	        <tr>
+	            <th>Code</th>
+	            <th>Nom</th>
+	            <th>Prénom</th>
+	            <th>Organisme</th>
+	            <th>Code Postal</th>
+	            <th>Adresse</th>
+	            <th>Ville</th>
+	            <th>Pays</th>
+	            <th>Email</th>
+	            <th>Date Inscription</th>
+	            <th>Statut</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr th:each="participant : ${parts}">
+	            <td th:text="${participant.codParticipant}"></td>
+	            <td th:text="${participant.nomPart}"></td>
+	            <td th:text="${participant.prenomPart}"></td>
+	            <td th:text="${participant.organismePart}"></td>
+	            <td th:text="${participant.cpPart}"></td>
+	            <td th:text="${participant.adrPart}"></td>
+	            <td th:text="${participant.villePart}"></td>
+	            <td th:text="${participant.paysPart}"></td>
+	            <td th:text="${participant.emailPart}"></td>
+	            <td th:text="${participant.dtInscription}"></td>
+	            <td th:text="${participant.statut.nomStatut}"></td>
+	        </tr>
+	    </tbody>
+	</table>
+
+	<br/>
+	<a href="/index"> Retour à l'index </a>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+
+	<h1>Site de gestion de conférences</h1>
+ 
+	
+	<div th:if=${session.estConnecte}>
+		<h2>Choississez une conférence</h2>
+		<form action="/conferences/inscrire/choixConf" method="POST">
+
+			<div th:each="c : ${conferences}">
+					<input type = 'radio' name = 'rd_statut' th:value = "${c.codConf}"/>
+					<span th:text="${c.titreConf}" /> 
+				</form>
+			</div>
+			<input type="submit" value="Se connecter"/>
+		</form>
+	</div>
+	
+	<div th:unless=${session.estConnecte}>
+		<h2>Connectez vous</h2>
+
+		<form action="/participants/connect" method="POST">
+			<input type="text" name="txt_email" value="" placeholder="email"/>
+			<input type="text" name="txt_pass" value="" placeholder="password"/>
+					
+			<input type="submit" name="button" value="Se connecter" />
+		</form>
+	
+	</div>
+	
+
+			
+	<br/>
+	<a href="/index"> Retour à l'index </a>	
+
+	</body>
+</html>

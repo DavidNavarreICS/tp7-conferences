@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h2>Liste des Conférences</h2>
+
+
+    <div th:each="conference : ${conferences}">
+        <span th:text="${conference.codConf}"/>
+        <span th:text="${conference.titreConf}"/>
+        <span th:text="${conference.numEditionConf}"/>
+        <span th:text="${conference.dtDebutConf}"/>
+        <span th:text="${conference.dtFinConf}"/>
+        <a th:href="${conference.urlSiteWebConf}" th:text="${conference.urlSiteWebConf}" target="_blank"></a>
+  
+		<br/>
+		Thématiques <br/>
+		<ul>
+			<li th:each="them : ${conference.thematiques}" > <span th:text="${them.nomThematique}" /></li>
+		</ul>	
+		
+		Activités <br/>
+		<ul>
+			<li th:each="act : ${conference.activites}" > <span th:text="${act.nomActivite}" /></li>
+		</ul>	
+	</div>
+			
+	<br/>
+	<a href="/index"> Retour à l'index </a>
+
+</body>
+</html>

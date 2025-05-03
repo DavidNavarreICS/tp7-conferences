@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>	
+		Vous avez créé avec succès la conference: <span th:text="${conf.titreConf}" /> . 
+		Les informations de création sont :
+		
+		<table>
+		    <thead>
+		        <tr>
+		            <th>Code</th>
+		            <th>Titre</th>
+		            <th>Édition</th>
+		            <th>Date Début</th>
+		            <th>Date Fin</th>
+		            <th>Site Web</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr>
+		            <td th:text="${conf.codConf}"></td>
+		            <td th:text="${conf.titreConf}"></td>
+		            <td th:text="${conf.numEditionConf}"></td>
+		            <td th:text="${conf.dtDebutConf}"></td>
+		            <td th:text="${conf.dtFinConf}"></td>
+		            <td>
+		                <a th:href="${conf.urlSiteWebConf}" th:text="${conf.urlSiteWebConf}" target="_blank"></a>
+		            </td>
+		        </tr>
+		    </tbody>
+		</table>
+
+		<br/>
+	</div>
+	
+	<a href="/index"> Retour à l'index </a>
+</body>
+</html>

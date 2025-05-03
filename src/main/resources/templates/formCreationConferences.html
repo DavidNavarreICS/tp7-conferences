@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<form action="/conferences/insert" method="GET">
+        
+    <h3>Descriptif</h3>
+    <p>
+        Titre <input type="text" name="txt_titre" />
+    </p>
+    <p>
+        Numéro édition <input type="text" name="txt_numedition" />
+    </p>
+    <p>
+        Date début <input type="date" name="txt_debut" />
+    </p>   
+    
+    <p>
+        Date fin <input type="date" name="txt_fin" />
+    </p>
+    
+    <p>
+        URL <input type="text" name="txt_url" />
+    </p>
+
+    <h3>Thématiques</h3>
+	<div th:each="t : ${thematiques}">
+		<input type = 'checkbox' name = 'cb_thematiques' th:value = "${t.codeThematique}"/>
+		<span th:text="${t.nomThematique}" /> 
+	</div>
+
+    
+    <h3>Activités</h3>
+	<div th:each="a : ${activites}">
+		<input type = 'checkbox' name = 'cb_activites' th:value = "${a.codeActivite}"/>
+		<span th:text="${a.nomActivite}" /> 
+	</div>
+
+
+    <input type="submit" value="Enregistrer" />
+</form>   
+
+</body>
+</html>     

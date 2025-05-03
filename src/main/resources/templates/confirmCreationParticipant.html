@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	
+	<div th:if=${ajoutSucces}>
+	
+		Vous avez créé avec succès le participant: <span th:text="${part.prenomPart}" /> <span th:text="${part.nomPart}" />. 
+		Les informations de création sont :
+		
+		<table border = "1">
+			    <thead>
+			        <tr>
+			            <th>Code</th>
+			            <th>Organisme</th>
+			            <th>Code Postal</th>
+			            <th>Adresse</th>
+			            <th>Ville</th>
+			            <th>Pays</th>
+			            <th>Email</th>
+			            <th>Date Inscription</th>
+			            <th>Statut</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr >
+			            <td th:text="${part.codParticipant}"></td>
+			            <td th:text="${part.organismePart}"></td>
+			            <td th:text="${part.cpPart}"></td>
+			            <td th:text="${part.adrPart}"></td>
+			            <td th:text="${part.villePart}"></td>
+			            <td th:text="${part.paysPart}"></td>
+			            <td th:text="${part.emailPart}"></td>
+			            <td th:text="${part.dtInscription}"></td>
+			            <td th:text="${part.statut.nomStatut}"></td>
+			        </tr>
+			    </tbody>
+			</table>
+		<br/>
+	</div>
+	
+	<div th:unless=${ajoutSucces}>
+		Le participant n'a pas pu être ajouté : l'email est déjà utilisé.	
+	</div>
+
+	<a href="/index"> Retour à l'index </a>
+</body>
+</html>

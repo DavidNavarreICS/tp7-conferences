@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<form action="/conferences/inscrire/confirm" method="POST">
+        
+    <h2>Vous avez choisi le conférence <span th:text="${session.conference.titreConf}" /></h2>
+
+    <h3>Thématiques</h3>
+	<div th:each="t : ${session.thematiques}">
+		<span th:text="${t.nomThematique}"/>
+	</div>
+
+    
+    <h3>Activités</h3>
+	<div th:each="a : ${session.activites}">
+		<span th:text="${a.nomActivite}" />  <span th:text="${a.prixActivite}" />  €
+	</div>
+
+
+    <input type="submit" value="Confirmer" />
+</form>   
+
+</body>
+</html>     
